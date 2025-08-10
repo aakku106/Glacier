@@ -13,16 +13,20 @@
 
 ## System Overview
 
-| Component                 | Model/Type           | Quantity | GPIO Pin | Function                   |
-| ------------------------- | -------------------- | -------- | -------- | -------------------------- |
-| ESP32 DevKit              | DOIT/NodeMCU/WROOM32 | 1        | -        | Main Controller            |
-| Water Level Sensor        | Analog/Capacitive    | 1        | GPIO 34  | Water level monitoring     |
-| RFID Reader               | MFRC522              | 1        | SPI Bus  | Glacier heat simulation    |
-| RFID Tag                  | MIFARE Classic 1K    | 1        | -        | Glacier trigger simulation |
-| Servo Motor (Small Canal) | SG90/MG996R          | 1        | GPIO 25  | Small canal gate control   |
-| Servo Motor (River Gate)  | SG90/MG996R          | 1        | GPIO 26  | Modular river gate control |
-| Servo Motor (Underground) | SG90/MG996R          | 1        | GPIO 27  | Underground gate control   |
-| Active Buzzer             | 5V Active Buzzer     | 1        | GPIO 18  | Audio alerts               |
+| Component                 | Model/Type           | Quantity | Power Source     | GPIO Pin  | Function                     |
+| ------------------------- | -------------------- | -------- | ---------------- | --------- | ---------------------------- |
+| ESP32 DevKit              | DOIT/NodeMCU/WROOM32 | 1        | 5V External      | -         | Main Controller (3.3V Logic) |
+| Arduino Uno               | ATmega328P           | 1        | 5V External      | -         | Dedicated Power Distribution |
+| Water Level Sensor        | Analog/Capacitive    | 1        | ESP32 (3.3V)     | GPIO 34   | Primary flood detection      |
+| RFID Reader               | MFRC522              | 1        | ESP32 (3.3V)     | SPI Bus   | Backup glacier simulation    |
+| RFID Tag                  | MIFARE Classic 1K    | 1        | -                | -         | Glacier trigger (demo only)  |
+| Servo Motor (Small Canal) | SG90/MG996R          | 1        | Arduino Uno (5V) | GPIO 25   | Small canal gate control     |
+| Servo Motor (River Gate)  | SG90/MG996R          | 1        | Arduino Uno (5V) | GPIO 26   | Modular river gate control   |
+| Servo Motor (Underground) | SG90/MG996R          | 1        | Arduino Uno (5V) | GPIO 27   | Underground gate control     |
+| Active Buzzer             | 5V Active Buzzer     | 1        | ESP32 (3.3V)     | GPIO 18   | Audio alerts                 |
+| RC Car (WiFi)             | ESP8266 Processor    | 1        | Independent      | WiFi      | Long-range rescue vehicle    |
+| RC Car (Bluetooth)        | Arduino Uno + BT     | 1        | Independent      | Bluetooth | Short-range rescue backup    |
+| LED Arrays                | Standard LEDs        | 4 Groups | ESP32 (3.3V)     | Various   | Visual status indicators     |
 
 **Version:** 1.0  
 **Date:** August 5, 2025  
@@ -54,30 +58,52 @@
 
 ### Purpose
 
-The Glacier Flood Detection & Prevention System is an IoT-based early warning and flood prevention system designed to monitor glacier melting conditions and water levels in real-time. The system uses **RFID technology to simulate glacier heat sources** for safe demonstration purposes, eliminating the dangers of actual heat sensors. The system provides automated flood prevention measures through servo-controlled gates and comprehensive alerting mechanisms.
+The Glacier Flood Detection & Prevention System is a comprehensive IoT-based disaster management platform designed to address **primary flood threats** with **secondary glacier monitoring capabilities**. The system pivoted to focus primarily on flood detection during development when RFID hardware experienced reliability issues during the competition.
+
+**Primary System Focus: Flood Detection & Prevention**
+
+- Real-time water level monitoring with progressive alert system
+- Automated flood gate control with servo motor precision
+- Community warning through web dashboard and audio/visual alerts
+- Remote rescue vehicle deployment for disaster response
+
+**Secondary Capability: Glacier Monitoring**
+
+- RFID-based glacier heat simulation for technical demonstrations
+- Educational component explained to competition judges
+- Backup monitoring method when primary sensors operational
+
+**Competition Adaptation Strategy:**
+During the district-level competition, the team successfully adapted when RFID components showed intermittent behavior, demonstrating engineering problem-solving by emphasizing the robust flood detection system while maintaining glacier monitoring as an explained technical capability.
 
 ### Key Features
 
-- **Real-time Monitoring:** Continuous sensor data collection and analysis
-- **Multi-level Alert System:** RFID glacier trigger, Level 1, and Level 2 flood alerts
-- **RFID Glacier Simulation:** Safe demonstration using RFID tags instead of dangerous heat sources
+- **Real-time Flood Monitoring:** Continuous water level sensor data collection and analysis
+- **Multi-level Alert System:** Progressive Level 1 and Level 2 flood warnings
+- **Smart Power Architecture:** Arduino Uno (5V) + ESP32 (3.3V) dual-controller design
 - **Water Sensor Calibration:** Automatic baseline calibration to filter electromagnetic interference
-- **Automated Response:** Servo-controlled flood gates with progressive opening
-- **Enhanced Web Dashboard:** Real-time monitoring interface with color-coded visual feedback
+- **Automated Flood Response:** Servo-controlled gates with progressive opening protocols
+- **Enhanced Web Dashboard:** Real-time monitoring interface with mobile responsiveness
 - **Secure Admin Panel:** Password-protected administrative controls with session management
-- **Manual Component Control:** Individual LED, buzzer, and servo controls for testing and maintenance
-- **Visual & Audio Alerts:** LED indicators and buzzer notifications with ALL lights for glacier burst
+- **Manual Component Control:** Individual LED, buzzer, and servo controls for testing
+- **Visual & Audio Alerts:** LED indicators and buzzer notifications with priority levels
+- **Remote Rescue Integration:** WiFi + Bluetooth RC vehicles for disaster response
 - **Data Logging:** Timestamped system events and alerts with calibration status
-- **Remote Access:** WiFi-enabled monitoring and control
-- **Touch/Interference Filtering:** Eliminates false readings from hand proximity or electrical noise
+- **Remote Access:** WiFi-enabled monitoring with global connectivity potential
+- **Nepal Terrain Adaptation:** Dual connectivity addressing mountainous region challenges
+- **Touch/Interference Filtering:** Eliminates false readings from electromagnetic noise
+- **Competition-Ready Demo:** RFID glacier simulation as backup demonstration method
 
 ### Target Environment
 
-- **Location:** Glacier-prone flood zones
-- **Climate:** Cold, variable temperature environments
-- **Power:** 5V DC supply (USB/External adapter)
-- **Connectivity:** 2.4GHz WiFi networks
-- **Demonstration:** Indoor environments with controlled lighting
+- **Primary Location:** Flood-prone areas (rivers, lakes, water bodies)
+- **Secondary Location:** Glacier-adjacent regions (monitoring capability)
+- **Terrain:** Nepal's mountainous regions with challenging connectivity
+- **Climate:** Variable temperature, high humidity during monsoons
+- **Power:** 5V DC supply (Arduino Uno + ESP32 dual-supply architecture)
+- **Connectivity:** 2.4GHz WiFi networks with Bluetooth backup
+- **Demonstration:** Indoor/outdoor environments with controlled testing
+- **Remote Operations:** Global WiFi control + local Bluetooth backup for RC vehicles
 
 ### Design Rationale: RFID vs Heat Sensors
 
@@ -101,24 +127,60 @@ The Glacier Flood Detection & Prevention System is an IoT-based early warning an
 
 ### Overview
 
-The system follows a modular architecture with the ESP32 microcontroller as the central processing unit, interfacing with sensors, actuators, and providing web-based monitoring capabilities.
+The system follows a sophisticated dual-controller architecture with **ESP32 as the main processor** and **Arduino Uno as the dedicated power distribution hub**. This design reduces ESP32 load, separates power domains, and ensures system reliability through intelligent power management.
 
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
 │   Sensors       │───▶│   ESP32 MCU      │◄──▶│   Actuators     │
-│ - Water Level   │    │ - Data Processing│    │ - Servo Motors  │
-│ - Glacier Heat  │    │ - Decision Logic │    │ - LED Arrays    │
-└─────────────────┘    │ - WiFi Server    │    │ - Buzzer        │
+│ - Water Level   │    │ - Data Processing│    │ - LED Arrays    │
+│ - RFID Reader   │    │ - Decision Logic │    │ - Buzzer        │
+│ (3.3V Domain)   │    │ - WiFi Server    │    │ (3.3V Domain)   │
+└─────────────────┘    │ - IoT Control    │    └─────────────────┘
+                       └──────────────────┘           │
+                              │                       │
+                              ▼                       ▼
+                       ┌──────────────────┐    ┌─────────────────┐
+                       │   Web Dashboard  │    │   Arduino Uno   │
+                       │ - Real-time Data │    │ - 5V Power Hub  │
+                       │ - System Control │    │ - Servo Motors  │
+                       │ - Event Logs     │    │ - Load Manager  │
+                       │ - Remote Access  │    └─────────────────┘
+                       └──────────────────┘           │
+                              │                       │
+                              ▼                       ▼
+                       ┌──────────────────┐    ┌─────────────────┐
+                       │  RC Vehicles     │    │   5V Components │
+                       │ - WiFi Car       │    │ - Servo Motors  │
+                       │ - Bluetooth Car  │    │ - High Power    │
+                       │ - Rescue Ops     │    │ - Isolated PSU  │
                        └──────────────────┘    └─────────────────┘
-                              │
-                              ▼
-                       ┌──────────────────┐
-                       │   Web Dashboard  │
-                       │ - Real-time Data │
-                       │ - System Control │
-                       │ - Event Logs     │
-                       └──────────────────┘
 ```
+
+### Smart Power Architecture
+
+**Dual-Controller Power Management:**
+
+1. **ESP32 Domain (3.3V):**
+
+   - Water level sensor (GPIO 34)
+   - RFID-RC522 module (SPI bus)
+   - LED arrays (GPIO 15, 2, 4, 5)
+   - Active buzzer (GPIO 18)
+   - WiFi/Bluetooth communication
+
+2. **Arduino Uno Domain (5V):**
+   - Servo motor power supply
+   - High-current component management
+   - Power isolation and distribution
+   - Reduces ESP32 electrical load
+
+**Engineering Benefits:**
+
+- **Load Separation:** Prevents ESP32 overload from high-current servos
+- **Voltage Isolation:** Eliminates cross-domain electrical interference
+- **System Stability:** Independent power supplies improve reliability
+- **Scalability:** Easy addition of more 5V components without ESP32 stress
+- **Professional Design:** Industry-standard power domain separation
 
 ### Communication Protocols
 
@@ -127,6 +189,43 @@ The system follows a modular architecture with the ESP32 microcontroller as the 
 - **Servo Control:** PWM (16-bit resolution, 50Hz)
 - **LED Control:** Digital GPIO
 - **Web Interface:** HTTP over WiFi (802.11n)
+- **Remote Vehicles:** WiFi (long-range) + Bluetooth (reliable backup)
+
+### Remote Rescue Vehicle Integration
+
+**Dual-Connectivity RC Vehicle System:**
+
+The system incorporates two remotely controlled vehicles designed for disaster response operations in Nepal's challenging mountainous terrain.
+
+**1. WiFi RC Car - Global Range Operation:**
+
+- **Technology:** 802.11n WiFi connectivity
+- **Range:** Unlimited (internet-connected)
+- **Control:** Web-based interface integration
+- **Use Cases:** Long-distance rescue operations, global remote control
+- **Advantages:** Worldwide accessibility, high bandwidth
+
+**2. Bluetooth RC Car - Reliable Local Operation:**
+
+- **Technology:** Bluetooth Classic/LE
+- **Range:** 30-100 meters (line of sight)
+- **Control:** Direct ESP32 communication
+- **Use Cases:** Mountainous regions with poor WiFi, backup communication
+- **Advantages:** Low latency, reliable in remote areas
+
+**Nepal-Specific Design Considerations:**
+
+- **Terrain Challenge:** WiFi connectivity unreliable in hilly regions
+- **Communication Redundancy:** Dual-connectivity ensures operational capability
+- **Disaster Response:** Landslide clearance, people rescue, supply delivery
+- **Life Safety:** Reduces human risk in dangerous disaster zones
+
+**Rescue Operations Capability:**
+
+- **Landslide Removal:** Clear debris blocking access routes
+- **People Rescue:** Transport rescue equipment, provide communication link
+- **Supply Delivery:** Emergency supplies to isolated communities
+- **Damage Assessment:** Remote reconnaissance of disaster areas
 - **Serial Debug:** UART (115200 baud)
 
 ---
