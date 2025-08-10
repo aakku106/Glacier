@@ -23,6 +23,7 @@
 
 > **🥇 FIRST PLACE WINNER**  
 > **District Level Robotics & IoT Competition**  
+> **Organized by:** [Cornor Technology](https://www.cornortech.com)  
 > **Category:** Disaster Prevention & IoT Innovation  
 > **Date:** August 2025  
 > **Achievement:** Gold Medal for Technical Innovation
@@ -103,22 +104,22 @@ We've created comprehensive documentation for different audiences:
 
 ### 📋 **Quick Start:**
 
-- **[DOCUMENTATION_INDEX.md](DOCUMENTATION_INDEX.md)** - Choose the right guide for you
+- **[docs/DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md)** - Choose the right guide for you
 
 ### 👥 **For Everyone (Non-Technical):**
 
-- **[SIMPLE_USER_GUIDE.md](SIMPLE_USER_GUIDE.md)** - Project overview in simple terms
+- **[docs/SIMPLE_USER_GUIDE.md](docs/SIMPLE_USER_GUIDE.md)** - Project overview in simple terms
 
 ### 👨‍💻 **For Technical People:**
 
-- **[ENGINEERING_DOCUMENTATION.md](ENGINEERING_DOCUMENTATION.md)** - Complete technical specifications
-- **[BREADBOARD_WIRING_GUIDE.md](BREADBOARD_WIRING_GUIDE.md)** - Hardware setup and connections
-- **[DEMONSTRATION_WATER_GUIDE.md](DEMONSTRATION_WATER_GUIDE.md)** - Testing and demo procedures
+- **[docs/ENGINEERING_DOCUMENTATION.md](docs/ENGINEERING_DOCUMENTATION.md)** - Complete technical specifications
+- **[docs/BREADBOARD_WIRING_GUIDE.md](docs/BREADBOARD_WIRING_GUIDE.md)** - Hardware setup and connections
+- **[docs/DEMONSTRATION_WATER_GUIDE.md](docs/DEMONSTRATION_WATER_GUIDE.md)** - Testing and demo procedures
 
 ### 💻 **Source Code:**
 
-- **[Try1/Try1.ino](Try1/Try1.ino)** - Main ESP32 Arduino code (1400+ lines)
-- **[Test_Connections.ino](Test_Connections.ino)** - Component testing utilities
+- **[src/main.ino](src/main.ino)** - Main ESP32 Arduino code (1400+ lines)
+- **[examples/Test_Connections.ino](examples/Test_Connections.ino)** - Component testing utilities
 
 ---
 
@@ -128,7 +129,7 @@ We've created comprehensive documentation for different audiences:
 
 ```bash
 # Follow the detailed wiring guide
-📖 See: BREADBOARD_WIRING_GUIDE.md
+📖 See: docs/BREADBOARD_WIRING_GUIDE.md
 ```
 
 ### **2. Software Installation:**
@@ -137,7 +138,7 @@ We've created comprehensive documentation for different audiences:
 # Clone this repository
 git clone https://github.com/aakku106/Glacier.git
 
-# Open Try1/Try1.ino in Arduino IDE
+# Open src/main.ino in Arduino IDE
 # Install libraries: WiFi, SPI, MFRC522
 # Update WiFi credentials in code
 # Upload to ESP32
@@ -147,10 +148,10 @@ git clone https://github.com/aakku106/Glacier.git
 
 ```bash
 # Use component tester first
-📖 See: Test_Connections.ino
+📖 See: examples/Test_Connections.ino
 
 # Then follow demo procedures
-📖 See: DEMONSTRATION_WATER_GUIDE.md
+📖 See: docs/DEMONSTRATION_WATER_GUIDE.md
 ```
 
 ### **4. Access Dashboard:**
@@ -291,7 +292,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🙏 **Acknowledgments**
 
-- **🏆 Competition Organizers** - For providing platform to showcase innovation
+- **🏆 Competition Organizers** - [Cornor Technology](https://www.cornortech.com) for providing platform to showcase innovation
 - **👨‍🏫 Judges & Mentors** - For recognizing technical excellence and real-world impact
 - **🌐 Open Source Community** - ESP32, Arduino, and MFRC522 library developers
 - **🏔️ Climate Researchers** - Inspiring our focus on glacier flood prevention
@@ -309,6 +310,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ⭐ **Star this repository to support glacier flood prevention worldwide!** ⭐
 
-[📖 Read Documentation](DOCUMENTATION_INDEX.md) | [🔧 Build Guide](BREADBOARD_WIRING_GUIDE.md) | [👥 Simple Guide](SIMPLE_USER_GUIDE.md)
+[📖 Read Documentation](docs/DOCUMENTATION_INDEX.md) | [🔧 Build Guide](docs/BREADBOARD_WIRING_GUIDE.md) | [👥 Simple Guide](docs/SIMPLE_USER_GUIDE.md)
 
 </div>

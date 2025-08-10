@@ -74,7 +74,7 @@ When using this project:
 
 ## 🙏 **Special Thanks**
 
-- **🏆 Competition Organizers** - For platform to showcase innovation
+- **🏆 Competition Organizers** - [Cornor Technology](https://www.cornortech.com) for platform to showcase innovation
 - **👨‍🏫 Judges & Mentors** - For recognizing technical excellence
 - **🌐 Arduino Community** - For ESP32 and sensor libraries
 - **🏔️ Climate Researchers** - For inspiring glacier safety focus
