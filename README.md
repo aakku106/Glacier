@@ -135,7 +135,7 @@ We've created comprehensive documentation for different audiences:
 
 ```bash
 # Clone this repository
-git clone https://github.com/yourusername/Glacier-Flood-Detection-System.git
+git clone https://github.com/aakku106/Glacier.git
 
 # Open Try1/Try1.ino in Arduino IDE
 # Install libraries: WiFi, SPI, MFRC522
@@ -187,10 +187,10 @@ git clone https://github.com/yourusername/Glacier-Flood-Detection-System.git
 
 ### **🏔️ The Champions**
 
-| **Team Member**     | **Role**                                   | **GitHub**                                       |
-| ------------------- | ------------------------------------------ | ------------------------------------------------ |
-| **[Your Name]**     | Lead Developer & System Architect          | [@yourusername](https://github.com/yourusername) |
-| **[Team Member 2]** | Hardware Engineer & Integration Specialist | [@teammate](https://github.com/teammate)         |
+| **Team Member**     | **Role**                                   | **Contact & Links**                                                                                                                |
+| ------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **Adarasha Gaiher** | Lead Developer & System Architect          | [@aakku106](https://github.com/aakku106) • [Website](https://adarashagaihre.com.np) • [Email](mailto:adarasha.gaihre106@gmail.com) |
+| **[Team Member 2]** | Hardware Engineer & Integration Specialist | [@teammate](https://github.com/teammate)                                                                                           |
 
 **Specializations:**
 
@@ -273,7 +273,9 @@ We welcome contributions to improve glacier flood detection worldwide!
 
 ### 📧 **Contact:**
 
-- **Project Leads:** [Your Email]
+- **Project Lead:** Adarasha Gaiher - [adarasha.gaihre106@gmail.com](mailto:adarasha.gaihre106@gmail.com)
+- **GitHub:** [@aakku106](https://github.com/aakku106)
+- **Website:** [adarashagaihre.com.np](https://adarashagaihre.com.np)
 - **Technical Questions:** Create GitHub issues
 - **Collaboration:** Pull requests welcome
 
