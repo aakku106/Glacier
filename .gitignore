@@ -1,0 +1,58 @@
+# Arduino IDE files
+*.hex
+*.eep
+*.elf
+*.map
+*.sym
+*.lss
+*.tmp
+*.bak
+*.cache
+
+# Build artifacts
+build/
+*.o
+*.a
+
+# VSCode files
+.vscode/
+*.code-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE files
+*.sublime-*
+.idea/
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.staging
+
+# Node modules (if using any JS tools)
+node_modules/
+
+# Python cache (if using any Python tools)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Backup files
+*~
+*.orig
