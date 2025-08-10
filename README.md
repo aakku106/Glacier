@@ -71,8 +71,8 @@ A comprehensive disaster management system that:
 | **3x Servo Motors**     | Automated flood gates  | Arduino Uno (5V)    | GPIO 25,26,27        | 180° precision control         |
 | **4x LED Groups**       | Visual warning system  | ESP32 (3.3V)        | GPIO 15,2,4,5        | Pathway, Safe Zone, Alert LEDs |
 | **Active Buzzer**       | Audio alerts           | ESP32 (3.3V)        | GPIO 33              | Multi-pattern warning tones    |
-| **RC Car (WiFi)**       | ESP8266 Processor    | Independent Battery  | WiFi Module          | Long-range rescue vehicle  |
-| **RC Car (Bluetooth)**  | Arduino Uno + BT     | Independent Battery  | Bluetooth Module     | Reliable short-range backup   |
+| **RC Car (WiFi)**       | ESP8266 Processor      | Independent Battery | WiFi Module          | Long-range rescue vehicle      |
+| **RC Car (Bluetooth)**  | Arduino Uno + BT       | Independent Battery | Bluetooth Module     | Reliable short-range backup    |
 | **Web Dashboard**       | Real-time monitoring   | HTTP/WiFi           | -                    | Responsive IoT interface       |
 
 ---
@@ -240,8 +240,8 @@ git clone https://github.com/aakku106/Glacier.git
 
 ## 📊 **Technical Specifications**
 
-```cpp
-// Core System Performance  
+````cpp
+// Core System Performance
 Water Thresholds: Level1=300, Level2=900 (competition-optimized)
 Servo Positions: Closed=0°, Half=30°, Full=70° (hardware-calibrated)
 RFID Detection: Configurable UID (0xFF,0xFF,0xFF,0xFF default)
@@ -355,3 +355,4 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 [📖 Read Documentation](docs/DOCUMENTATION_INDEX.md) | [🔧 Build Guide](docs/BREADBOARD_WIRING_GUIDE.md) | [👥 Simple Guide](docs/SIMPLE_USER_GUIDE.md)
 
 </div>
+````

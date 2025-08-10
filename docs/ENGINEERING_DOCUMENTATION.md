@@ -199,19 +199,23 @@ The system incorporates two remotely controlled vehicles designed for disaster r
 
 **1. WiFi RC Car - Global Range Operation:**
 
+- **Processor:** ESP8266 WiFi Module (dedicated microcontroller)
 - **Technology:** 802.11n WiFi connectivity
 - **Range:** Unlimited (internet-connected)
 - **Control:** Web-based interface integration
 - **Use Cases:** Long-distance rescue operations, global remote control
 - **Advantages:** Worldwide accessibility, high bandwidth
+- **Independence:** Separate processor ensures system redundancy
 
 **2. Bluetooth RC Car - Reliable Local Operation:**
 
+- **Processor:** Arduino Uno with Bluetooth module (dedicated controller)
 - **Technology:** Bluetooth Classic/LE
 - **Range:** 30-100 meters (line of sight)
 - **Control:** Direct ESP32 communication
 - **Use Cases:** Mountainous regions with poor WiFi, backup communication
-- **Advantages:** Low latency, reliable in remote areas
+- **Advantages:** Low latency, reliable in remote areas, emergency backup
+- **Independence:** Completely separate system from main flood detection
 
 **Nepal-Specific Design Considerations:**
 
@@ -362,26 +366,51 @@ Sampling Rate: 20Hz (50ms loop)
 
 ## Threshold Configuration
 
-### Water Level Thresholds
+### Final Competition-Optimized Water Level Thresholds
 
 ```cpp
-#define WATER_LEVEL1_THRESHOLD 1500   // Level 1 Warning (36.6% of max)
-#define WATER_LEVEL2_THRESHOLD 2500   // Level 2 Critical (61.0% of max)
+#define WATER_LEVEL1_THRESHOLD 300    // Level 1 Warning - Just a little water detected
+#define WATER_LEVEL2_THRESHOLD 900    // Level 2 Critical - Slightly more water (easy to achieve)
 ```
 
-### Glacier Heat Threshold
+**Competition Adaptation Notes:**
+
+- **Original Values:** Level1=1500, Level2=2500 (development phase)
+- **Final Values:** Level1=300, Level2=900 (competition-ready)
+- **Optimization Reason:** Last-minute hardware compatibility and demo reliability
+- **Engineering Decision:** Lower thresholds ensure reliable triggering during presentation
+
+### RFID Configuration
 
 ```cpp
-#define GLACIER_HEAT_THRESHOLD 2000   // Heat Warning (48.8% of max)
+// RFID Configuration
+MFRC522 rfid(SS_PIN, RST_PIN);   // Create RFID instance
+MFRC522::MIFARE_Key key;
+
+// Glacier RFID Tag UID (representing heat source/melting trigger)
+byte glacierTagUID[4] = {0xFF, 0xFF, 0xFF, 0xFF};  // Default UID - update after reading your tag
 ```
 
-### Servo Position Mapping
+**RFID Implementation Notes:**
+
+- **Configurable UID:** Allows adaptation to any available RFID tag
+- **Default Value:** 0xFF pattern for universal compatibility
+- **Competition Use:** Backup demonstration method for glacier simulation
+
+### Competition-Optimized Servo Position Mapping
 
 ```cpp
-#define SERVO_CLOSED 0        // 0° - Gates closed
-#define SERVO_HALF_OPEN 90    // 90° - Partial opening
-#define SERVO_FULL_OPEN 180   // 180° - Full opening
+#define SERVO_CLOSED 0        // 0° - Gates fully closed
+#define SERVO_HALF_OPEN 30    // 30° - Partial opening (optimized for hardware)
+#define SERVO_FULL_OPEN 70    // 70° - Full opening (hardware-compatible range)
 ```
+
+**Servo Optimization Notes:**
+
+- **Original Range:** 0°, 90°, 180° (full mechanical range)
+- **Optimized Range:** 0°, 30°, 70° (hardware-compatible)
+- **Competition Tuning:** Adjusted for actual servo mechanical limits and demo reliability
+- **Engineering Approach:** Hardware-first calibration for consistent performance
 
 ### Calibration Notes
 
