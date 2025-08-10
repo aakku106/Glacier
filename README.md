@@ -240,7 +240,7 @@ git clone https://github.com/aakku106/Glacier.git
 
 ## 📊 **Technical Specifications**
 
-````cpp
+```cpp
 // Core System Performance
 Water Thresholds: Level1=300, Level2=900 (competition-optimized)
 Servo Positions: Closed=0°, Half=30°, Full=70° (hardware-calibrated)
@@ -251,7 +251,9 @@ Emergency Redundancy: Separate processors ensure system backup reliability
 WiFi Dashboard: 2-second auto-refresh, mobile responsive
 Boot Time: ~5 seconds to full operation
 Memory Usage: 35KB RAM (efficient ESP32 utilization)
-```### 🔋 **Power Architecture**
+```
+
+### 🔋 **Power Architecture**
 
 - **Arduino Uno:** 5V dedicated supply for servo motors and high-power components
 - **ESP32:** 3.3V optimized for sensors, WiFi, and control logic
