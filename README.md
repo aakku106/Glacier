@@ -1,4 +1,5 @@
 <!-- @format -->
+   ![](https://komarev.com/ghpvc/?username=aakku&abbreviated=true&base=0&label=Reppo+VIEWS&style=for-the-badge)
 
 # 🏔️ Glacier Flood Detection & Prevention System
 
