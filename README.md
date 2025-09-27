@@ -1,8 +1,8 @@
 <!-- @format -->
 <div align="center">
-   
+
    ![](https://komarev.com/ghpvc/?username=Glacier106&abbreviated=true&base=10&label=Reppo+VIEWS&style=for-the-badge)
-   
+
 </div>
 
 # 🏔️ Glacier Flood Detection & Prevention System
