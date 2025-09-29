@@ -1,0 +1,42 @@
+🌊 Introducing "Glacier" - Our IoT Flood Detection & Prevention System 🚨
+
+Hi, I'm Adarasha Gaihre! As CS students at Nepathya College, we built something that could save lives in Nepal - a smart flood detection system that automatically warns communities and prevents disasters.
+
+🎯 THE PROBLEM:
+Every monsoon, sudden floods devastate Nepal's communities. People near rivers get no warning until it's too late.
+
+💡 OUR SOLUTION:
+✅ Real-time water sensors with smart calibration
+✅ Automated flood gates (3 servo motors)
+✅ WiFi web dashboard for remote monitoring  
+✅ Two-level alerts: Yellow → Red
+✅ Open-source for global deployment
+
+� KEY INNOVATIONS:
+• ESP32 + Arduino dual-power architecture
+• Filters false readings (touching sensor won't trigger alerts!)
+• RFID glacier simulation for safe demos
+• Works 24/7 without human intervention
+
+⚡ BIGGEST CHALLENGES:
+• Sensor calibration (weeks debugging electromagnetic interference)
+• Power management (ESP32 crashes → dual-controller solution)
+• Memory optimization (10KB HTML → 1KB redesign)
+• WiFi connectivity (college networks → mobile hotspot solution)
+
+� HUGE THANKS TO NEPATHYA COLLEGE:
+Vice-Principal Shiva Bhattarai sir personally drove our project to competition in his car! College supported us economically & emotionally. We worked 6 AM-9 PM in classrooms daily.
+
+🌍 REAL IMPACT:
+This could protect thousands of families in flood-prone areas. We've open-sourced everything for global communities.
+
+📖 Technical Details & Photos:
+• Engineering docs: https://github.com/aakku106/Glacier/tree/main/docs
+• Source code: https://github.com/aakku106/Glacier/tree/main/src
+• Complete project: https://github.com/aakku106/Glacier
+
+Connect: https://github.com/aakku106
+
+Next post: How this project won us first place! 👀
+
+#IoT #FloodPrevention #ESP32 #Arduino #Nepal #TechForGood #OpenSource #StudentInnovation #DisasterPrevention
